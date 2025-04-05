@@ -1,0 +1,15 @@
+# 依赖目录
+node_modules/
+
+# 构建输出
+.next/
+out/
+
+# 环境文件
+.env*.local
+
+# 系统文件
+.DS_Store
+
+# 调试文件
+*.log

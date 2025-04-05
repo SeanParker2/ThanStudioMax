@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <!-- Than Studio Logo for Animation -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000" stop-opacity="1">
+        <animate attributeName="stop-color" values="#000;#333;#000" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#333" stop-opacity="1">
+        <animate attributeName="stop-color" values="#333;#000;#333" dur="3s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    <clipPath id="text-clip">
+      <text x="10" y="65" font-family="Arial, sans-serif" font-weight="bold" font-size="48">Than Studio</text>
+    </clipPath>
+  </defs>
+  
+  <!-- Background Elements -->
+  <g class="background-elements">
+    <circle cx="150" cy="50" r="40" fill="none" stroke="#eee" stroke-width="1" opacity="0.5">
+      <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="50" r="30" fill="none" stroke="#eee" stroke-width="1" opacity="0.5">
+      <animate attributeName="r" values="30;35;30" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="50" r="20" fill="none" stroke="#eee" stroke-width="1" opacity="0.5">
+      <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Text Path for Animation -->
+  <g clip-path="url(#text-clip)">
+    <path d="M10,65 H290" stroke="url(#gradient)" stroke-width="48" stroke-linecap="round" fill="none" stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" dur="2.5s" begin="0.5s" fill="freeze" />
+    </path>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g class="decorative-elements">
+    <rect x="10" y="75" width="280" height="2" fill="#000" opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2.5s" fill="freeze" />
+      <animate attributeName="width" values="0;280" dur="1s" begin="2.5s" fill="freeze" />
+    </rect>
+    <circle cx="150" cy="85" r="3" fill="#000" opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="3s" fill="freeze" />
+      <animate attributeName="r" values="0;3" dur="0.5s" begin="3s" fill="freeze" />
+    </circle>
+  </g>
+</svg>

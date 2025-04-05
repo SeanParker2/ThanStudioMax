@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --primary-color: #000000;
+  --loader-size: 80px;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* 页面加载动画样式 - 新版创意设计 */
+.creative-loader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* SVG动画样式 */
+.svg-animation path,
+.svg-animation rect,
+.svg-animation circle {
+  transition: all 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: stroke-dashoffset, opacity, transform;
+  transform: translateZ(0);
+}
+
+/* 设计元素动画 */
+.design-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+.progress-bar {
+  transition: width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%);
+  background-size: 16px 16px;
+  animation: shimmer 1.8s linear infinite;
+  will-change: width, transform;
+  transform: translateZ(0);
+}
+
+/* 加载文本样式 */
+.loader-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+.loader-text .dot {
+  opacity: 0.6;
+}
+
+@keyframes letter-appear {
+  0% { opacity: 0; transform: translateY(20px) rotateX(-30deg); }
+  30% { opacity: 0.3; transform: translateY(10px) rotateX(-15deg); }
+  60% { opacity: 0.7; transform: translateY(5px) rotateX(-5deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+@keyframes progress-animation {
+  0% { width: 0; }
+  15% { width: 15%; }
+  30% { width: 35%; }
+  45% { width: 50%; }
+  60% { width: 65%; }
+  75% { width: 80%; }
+  90% { width: 95%; }
+  100% { width: 100%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  50% { background-position: 0 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes loader-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes loader-shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.animate-in {
+  animation: fade-in 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-out {
+  animation: fade-out 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: scale(0.98); }
+  50% { opacity: 0.5; transform: scale(0.99); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.01); }
+  100% { opacity: 0; transform: scale(1.02); }
+}
+
+@keyframes loader-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes container-fade-in {
+  0% { opacity: 0; }
+  20% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 响应式布局优化 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
